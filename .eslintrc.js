@@ -4,6 +4,7 @@ module.exports = {
     node: true,
   },
   extends: [
+    "plugin:vue/base",
     "plugin:vue/vue3-essential",
     "eslint:recommended",
     "@vue/typescript/recommended",
@@ -28,4 +29,8 @@ module.exports = {
       },
     },
   ],
+  globals: {
+    defineProps: "readonly",
+    defineEmits: "readonly"
+  }
 };
