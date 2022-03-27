@@ -10,8 +10,12 @@
       </template>
     </navbar>
     <div class="row" id="page-content">
-      <router-view v-slot="{ Component }">
-        <transition appear enter-active-class="animated fadeIn">
+      <router-view v-slot="{ Component, route }">
+        <transition
+          appear
+          enter-active-class="animated fadeIn"
+          :key="route.path"
+        >
           <suspense>
             <template #default>
               <component :is="Component" />
@@ -29,8 +33,9 @@
 <script setup lang="ts">
 import Navbar from "./components/Navbar.vue";
 import NavItemText from "@/components/NavItemText.vue";
+import NavItemProps from "@/types/NavItemProps";
 
-const navItems = [
+const navItems: NavItemProps[] = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
 ];

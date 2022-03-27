@@ -9,18 +9,14 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-
-interface INavItemProps {
-  label: string;
-  href: string;
-}
+import NavItemProps from "@/types/NavItemProps";
 
 export default defineComponent({
   props: {
     link: {
-      type: Object as PropType<INavItemProps>,
+      type: Object as PropType<NavItemProps>,
       required: true,
-      default: (): INavItemProps => {
+      default: (): NavItemProps => {
         return {
           label: "",
           href: "",
